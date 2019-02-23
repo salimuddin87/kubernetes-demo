@@ -1,0 +1,13 @@
+kubectl get cs
+
+kubectl create -f filename.yml
+
+kubectl exec it web /bin/bash (only one container is running)
+
+	env
+	ping redis
+	curl localhost:5000
+
+curl <node ip>:nodePort
+
+kubectl scale rc web --replicas=10
