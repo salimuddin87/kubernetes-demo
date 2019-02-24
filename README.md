@@ -1,4 +1,4 @@
-# kubernetes-demo
+# kubernetes-demonstration
 Tutorial to build and deploy a simple Python app in Kubernetes. The walkthrough is available [here](https://youtu.be/zeS6OyDoy78).
 
 Make sure that you have access to a Kubernetes cluster.

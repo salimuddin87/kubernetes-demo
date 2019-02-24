@@ -14,7 +14,7 @@ spec:
           name: redis
           protocol: TCP
     - name: python
-      image:salimkabeer/py_redis_mysql
+      image: salimkabeer/py_redis_mysql
       env:       
         - name: "REDIS_HOST"
           value: "localhost"
