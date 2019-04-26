@@ -1,13 +1,16 @@
-Simple Pod Demonstration
-========================================================
+# Simple Pod Demonstration
+-------------------------------------------------------------------------
 $ kubectl create -f pod-nginx.yml
+
 pod/nginx-pod created
 
 $ kubectl get pods
+
 NAME        READY   STATUS    RESTARTS   AGE
 nginx-pod   1/1     Running   0          98s
 
 $ kubectl describe pod nginx-pod
+
 Name:               nginx-pod
 Namespace:          default
 Priority:           0
@@ -58,6 +61,7 @@ Events:
   Normal  Started    2m13s  kubelet, minikube  Started container
 
 $ kubectl expose pod nginx-pod --type=NodePort
+
 service/nginx-pod exposed
 
 $ kubectl get svc
