@@ -13,7 +13,7 @@ A open source container orchestration tool initially developed by Google.
 
 ##### K8s Components
 1. API server - Entry point to k8s cluster.
-2. Controller - Keeps track of whats happening in the cluster.
+2. Controller - Keeps track of whats happening in the cluster. Ex - checks desired state == actual state
 3. Scheduler - Ensures pods placement on different nodes.
 4. etcd(key-value storage) - current state of k8s cluster.
 5. virtual network - crates one unified machine.
