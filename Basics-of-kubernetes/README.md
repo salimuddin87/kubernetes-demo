@@ -29,8 +29,8 @@ A open source container orchestration tool initially developed by Google.
 3. It is also a load balancer.
 
 ##### Ingress (External Service)
-Any request to k8s node goes to Ingress and then Ingress pass the request to service. 
-Ingress also help in hiding url of actual service running in cluster.
+1. Any request to k8s node goes to Ingress and then Ingress pass the request to service. 
+2. Ingress also help in hiding url of actual service running in cluster.
 
 ##### Configmap
 1. External configuration of your application. Ex - Database URL
