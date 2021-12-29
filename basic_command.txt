@@ -1,0 +1,67 @@
+kubectl config view --minify --raw
+
+kubectl edit cm <cm_name> -n namespace
+
+docker rmi -f $(docker image ls | grep months | awk '{print $3 }')
+
+kubectl rollout restart deployment [deployment_name]
+
+kubectl get pods --all-namespaces --field-selector 'status.phase==Failed'
+
+kubectl delete deployment $(kubectl get deployment -n namespace | awk '{print $1}') -n namespace
+
+kubectl rollout restart deployment $(kubectl get deployment -n namespace | awk '{print $1}') -n namespace
+
+kubectl delete deployment $(kubectl get deployment -n namespace | grep hath6oow | awk '{print $1}') -n namespace
+
+kubectl delete pod $(kubectl get pods -n namespace | grep Evicted | awk '{print $1}') -n namespace --grace-period=0 --force
+
+kubectl -n namespace delete deployment -l "app=external-search,launch-id!=ies3phai,launch-id!=persist"
+
+kubectl wait wait deployment -l "app in (web,http-server) "--for condition=available --timeout=-1s
+
+kubectl delete daemonset datadog-agent -n kube-system --grace-period=0 --force
+-------------------------------------------------------------------------------------------------------------
+Diagnosis commands:-
+
+kubectl get events
+
+kubectl top pod -n namespace 
+
+kubectl describe deploy <yourDeploymentName> # TO see scale up of replica
+
+kubectl scale --replicas 5 deployment/amr-deployment -n namespace
+
+#########################################################################################################
+
+$ kubectl get pods -l app=datadog-agent -n kube-system
+
+$ kubectl get configmaps kiali -o yaml -n istio-system
+
+$ kubectl get cm kiali -n istio-system -o json
+
+$ kubectl logs -n istio-system istio-ingressgateway-5586f47659-r64lb | grep -v deprecated
+
+$ kubectl logs PODNAME -c istio-proxy -n NAMESPACE
+
+$ kubectl exec -it <POD_NAME> s6-svstat /var/run/s6/services/agent/
+
+$ kubectl exec -it <POD_NAME> agent status
+
+$ kubectl exec <POD_NAME> -it agent flare <CASE_ID> (your internal case id is 359064,362140)
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+# kubectl get namespace -L istio-injection
+
+# kubectl label namespace <namespace-name> istio-injection=enabled
+
+istio health check fix
+-------------------------
+kubectl get cm istio-sidecar-injector -n istio-system -o yaml | sed -e 's/"rewriteAppHTTPProbe": true/"rewriteAppHTTPProbe": false/' | kubectl apply -f -
+
+2 kubectl edit deploy istio-ingressgateway -n istio-system
+
+2 kubectl edit cm istio-sidecar-injector -n istio-system
+
+6 kubectl edit deploy prometheus -n istio-system
